@@ -25,7 +25,7 @@ public class TestController {
     @GetMapping("/consumer")
     public String consumer() {
         ServiceInstance serviceInstance = client.choose("alibaba-nacos-discovery-server");
-        String url = serviceInstance.getUri() + "/producer?name=zhanghaichang";
+        String url = serviceInstance.getUri() + "/producer?name="+"zhanghaichang";
         log.info("url: {}",url);
         String response = restTemplate.getForObject(url, String.class);
         return "Invoke : " + url + ", return : " + response;
